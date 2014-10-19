@@ -21,4 +21,5 @@ public class LonelyTweetModelTest extends ActivityInstrumentationTestCase2<Lonel
 		assertFalse("different tweets are not equal",
 				normal.equals(otherNormal));
 	}
+	
 }

@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Date;
 
 import android.app.Activity;
 import android.content.Context;
@@ -57,6 +56,14 @@ public class LonelyTwitterActivity extends Activity {
 		adapter = new ArrayAdapter<NormalTweetModel>(this,
 				R.layout.list_item, tweets);
 		oldTweetsList.setAdapter(adapter);
+	}
+
+	public ArrayAdapter<NormalTweetModel> getAdapter(){
+		return adapter;
+	}
+	
+	public void setAdapter(ArrayAdapter<NormalTweetModel> adapter){
+		this.adapter = adapter;
 	}
 
 	private ArrayList<NormalTweetModel> loadFromFile() {

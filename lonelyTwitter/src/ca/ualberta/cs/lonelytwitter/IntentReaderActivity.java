@@ -7,8 +7,8 @@ import android.content.Intent;
 
 public class IntentReaderActivity extends Activity {
 
-	public static final String TEXT_KEY = "TEXT";
-	public static final String TRANSFORM_KEY = "TRANSFORM";
+	public static final String TEXT_TO_TRANSFORM_KEY = "TEXT";
+	public static final String MODE_OF_TRANSFORM_KEY = "TRANSFORM";
 
 	public static final int NORMAL = 1;
 	public static final int REVERSE = 2;
@@ -25,21 +25,24 @@ public class IntentReaderActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_intent_reader);
+		
+        //TODO: Add your code here ...
 	}
-	
-	public String transformText(String text) {
+
+	public String transformText(String str) {
 		switch (mode) {
 			case REVERSE:
-				char[] string =  text.toCharArray();
-				for (int i = 0; i < string.length / 2; i++) {
-					char tmp = string[i];
-					string[i] = string[string.length - i -1];
-					string[string.length - i - 1] = tmp;
-				}
-				return new String(string);
+				char[] str2 =  str.toCharArray();
+				for (int i = 0; i < str2.length / 2; i++) {
+					char tmp = str2[i];
+					str2[i] = str2[str2.length - i -1];
+					str2[str2.length - i - 1] = tmp;
+				}//for.
+				return new String(str2);
 			case DOUBLE:
-				return text + text;
+				return str + str;
+			default: 
+				return str;
 		}
-		return text;
 	}
 }
