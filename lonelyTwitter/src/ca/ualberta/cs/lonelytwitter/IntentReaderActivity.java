@@ -27,7 +27,17 @@ public class IntentReaderActivity extends Activity {
 		setContentView(R.layout.activity_intent_reader);
 		
 		//TODO: Add your code here:
-
+		
+	//----------------------------------------------this is what what we want to test-------------------------------------------------------------//
+		Intent intent = getIntent();
+		//now check what is in the extras in intent
+		mode = intent.getIntExtra(MODE_OF_TRANSFORM_KEY, NORMAL);
+		if(intent.getStringExtra(TEXT_TO_TRANSFORM_KEY)!= null)
+			text = transformText(intent.getStringExtra(TEXT_TO_TRANSFORM_KEY)); //problem is it might send a null if no thing is being sent
+		else
+			text = "default text";
+		
+		((TextView)findViewById(R.id.intentText)).setText(text);
 	}
 
 	public String transformText(String str) {
